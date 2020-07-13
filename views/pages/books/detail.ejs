@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../style/reset.css">
+    <link rel="stylesheet" href="../style/base.css">
+    <link rel="stylesheet" href="../style/layout.css">
+    <link rel="stylesheet" href="../style/modules.css">
+</head>
+<body>
+    <header>
+        <button class="hamburger">&#9776;</button>
+        <button class="cross">&#735;</button>
+        <div class="menu">
+            <ul>
+                <a href="/index">
+                    <li>Result</li>
+                </a>
+                <a href="/search">
+                    <li>Search</li>
+                </a>
+            </ul>
+        </div>
+    </header>
+    <main>
+       <section>
+        <div>
+            <img src=" <%= book.img_url %> "alt="">
+            <h2><%= book.title %></h2>
+            <h4><%= book.author %></h4>
+            <p><%= book.description %></p>
+            <h2><%= book.isbin %></h2>
+            <h2><%= book.bookshelf %></h2>
+        </div>
+       </section> 
+    </main>
+</body>
+</html>
