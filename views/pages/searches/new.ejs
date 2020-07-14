@@ -6,9 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Books</title>
     <link rel="stylesheet" href="style/reset.css">
+    <link rel="stylesheet" href="style/modules.css">
     <link rel="stylesheet" href="style/base.css">
     <link rel="stylesheet" href="style/layout.css">
-    <link rel="stylesheet" href="style/modules.css">
 </head>
 
 <body>
@@ -17,17 +17,17 @@
         <button class="cross">&#735;</button>
         <div class="menu">
             <ul>
-                <a href="#">
-                    <li>Result</li>
+                <a href="/">
+                    <li>Home</li>
                 </a>
-                <a href="#">
+                <a href="/search">
                     <li>Search</li>
                 </a>
             </ul>
         </div>
     </header>
     <main>
-        <form action="/search" method="post">
+        <form action="/search" id="main_form" method="post">
             <label for="text"></label>
             <input type="text" name="text" id="inp" placeholder="Enter a Title or Author">
             <span>
@@ -47,6 +47,7 @@
     </main>
     <footer>
     </footer>
+    <!-- newwwww -->
     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
     <script src="/functionality/app.js"></script>
 </body>
