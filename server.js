@@ -9,6 +9,8 @@ const express = require('express');
 const client = new pg.Client(process.env.DATABASE_URL)
 
 const cors = require('cors');
+const methodOverride = require('method-override');
+
 
 
 
@@ -21,6 +23,7 @@ const server = express();
 server.use(cors());
 
 server.set('view engine', 'ejs');
+server.use(methodOverride('_method'));
 
 
 const PORT = process.env.PORT;
@@ -99,10 +102,6 @@ server.post('/addbook', (req, res) => {
         })
 })
 
-// server.get('/details',(req,res) =>{
-//     SQL = `SELECT * FROM books_info WHERE id = $1;`;
-
-// });
 
 server.get('/books/:id', (req, res) => {
     let SQL = `SELECT * FROM books WHERE id = $1;`;
@@ -113,6 +112,26 @@ server.get('/books/:id', (req, res) => {
             res.render('pages/books/detail', { book: result.rows[0]});
         })
 });
+server.put('/updateBook/:id',(req,res) =>{
+    let {img_url,title,author,description,isbn,bookshelf} = req.body;
+    let SQL = `UPDATE books SET img_url=$1,title=$2,author=$3,description=$4,isbn=$5,book_shelf=$6 WHERE id =$7`
+    let id = req.params.id;
+    let values = [img_url,title,author,description,isbn,bookshelf,id];
+    client.query(SQL,values)
+        .then(()=>{
+            res.redirect(`/books/${id}`);
+        });
+});
+server.delete('/deleteBook/:id',(req,res) => {
+    let SQL = `DELETE FROM books WHERE id=$1;`;
+    let values = [req.params.id];
+    client.query(SQL,values)
+        .then(()=>{
+            res.redirect('/');
+        });
+});
+
+
 
 client.connect()
     .then(() => {

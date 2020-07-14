@@ -5,10 +5,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="style/reset.css">
-    <link rel="stylesheet" href="style/base.css">
-    <link rel="stylesheet" href="style/layout.css">
-    <link rel="stylesheet" href="style/modules.css">
+    <link rel="stylesheet" href="../style/reset.css">
+    <link rel="stylesheet" href="../style/base.css">
+    <link rel="stylesheet" href="../style/layout.css">
+    <link rel="stylesheet" href="../style/modules.css">
 </head>
 
 <body>
@@ -17,8 +17,8 @@
         <button class="cross">&#735;</button>
         <div class="menu">
             <ul>
-                <a href="/index">
-                    <li>Result</li>
+                <a href="/">
+                    <li>Home</li>
                 </a>
                 <a href="/search">
                     <li>Search</li>
@@ -29,17 +29,19 @@
     <main>
         <section>
             <% theBook.forEach(val =>{ %>
-            <div>
+            <div class="main-div">
                 <img src=" <%= val.img_url %> " alt="">
                 <h2><%= val.title %></h2>
                 <h4><%= val.author %></h4>
                 <p><%= val.description %></p>
-                <a href="/books/<%=val.id%>"><button>View In Details</button></a>
+                <a href="/books/<%=val.id%>"><button class="inputBtn">View In Details</button></a>
             </div>
             <%})%>
         </section>
     </main>
-
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="/functionality/app.js"></script>
+<!-- index -->
 </body>
 
 </html>

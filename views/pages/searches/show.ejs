@@ -6,9 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Book</title>
     <link rel="stylesheet" href="style/reset.css">
+    <link rel="stylesheet" href="style/modules.css">
     <link rel="stylesheet" href="style/base.css">
     <link rel="stylesheet" href="style/layout.css">
-    <link rel="stylesheet" href="style/modules.css">
 </head>
 
 <body>
@@ -17,10 +17,10 @@
         <button class="cross">&#735;</button>
         <div class="menu">
             <ul>
-                <a href="#">
-                    <li>Result</li>
+                <a href="/">
+                    <li>Home</li>
                 </a>
-                <a href="#">
+                <a href="/search">
                     <li>Search</li>
                 </a>
             </ul>
@@ -29,27 +29,27 @@
     <main>
         <section>
             <% booksData.forEach(val =>{ %>
-            <div>
+            <div class="main-div">
                 <img src=" <%= val.img_url %> " alt="">
                 <h2><%= val.title %></h2>
                 <h4><%= val.author %></h4>
                 <p><%= val.description %></p>
-                <button class="hide-show">Select</button>
+                <button class="hide-show inputBtn inputBtn">Select</button>
 
-                    <form action="/addbook" method="post" class="hide">
-                        <fieldset>
-                            <input type="text" name='title' value="<%= val.title %>">
-                            <input type="text" name='author' value="<%= val.author %>">
-                            <input type="text" name='img_url' value="<%= val.img_url %>">
-                            <textarea type="text" name='description' cols="40"
-                                rows="20"><%= val.description %></textarea>
-                            <input type="text" name="book shelf">
-                            <button type="submit">Add To Database</button>
-                        </fieldset>
+                <form action="/addbook" method="post" class="hide">
+                    <fieldset>
+                        <input type="text" name='title' value="<%= val.title %>" class="inputText">
+                        <input type="text" name='author' value="<%= val.author %>" class="inputText">
+                        <input type="text" name='img_url' value="<%= val.img_url %>" class="inputText">
+                        <textarea type="text" name='description' cols="40" rows="20"><%= val.description %></textarea>
+                        <input type="text" name="bookshelf" value="<%= val.bookshelf %>" class="inputText">
+                        <button type="submit" class="inputBtn">Add To Database</button>
+                    </fieldset>
 
-                    </form>
+                </form>
             </div>
             <% }) %>
+            <!-- Showwwwwwwwwwwww -->
         </section>
     </main>
     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>

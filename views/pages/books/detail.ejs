@@ -15,8 +15,8 @@
         <button class="cross">&#735;</button>
         <div class="menu">
             <ul>
-                <a href="/index">
-                    <li>Result</li>
+                <a href="/">
+                    <li>Home</li>
                 </a>
                 <a href="/search">
                     <li>Search</li>
@@ -25,16 +25,35 @@
         </div>
     </header>
     <main>
-       <section>
-        <div>
-            <img src=" <%= book.img_url %> "alt="">
-            <h2><%= book.title %></h2>
-            <h4><%= book.author %></h4>
-            <p><%= book.description %></p>
-            <h2><%= book.isbin %></h2>
-            <h2><%= book.bookshelf %></h2>
-        </div>
-       </section> 
+        <section>
+            <div class="main-div">
+                <img src=" <%= book.img_url %> " alt="">
+                <h2><%= book.title %></h2>
+                <h4><%= book.author %></h4>
+                <p><%= book.description %></p>
+                <h2><%= book.isbin %></h2>
+                <h2><%= book.book_shelf %></h2>
+                <form action="/deleteBook/<%= book.id %>?_method=delete" method="post">
+                    <button class="inputBtn">Delete Book</button>
+                </form>
+                <button id="showUForm" class="inputBtn">Show Form To Ubdate Book</button>
+                <section>
+                    <form action="/updateBook/<%= book.id %>?_method=put" method="post">
+                        <fieldset>
+                            <input type="text" name='title' value="<%= book.title %>" class="inputText">
+                            <input type="text" name='author' value="<%= book.author %>" class="inputText">
+                            <input type="text" name='img_url' value="<%= book.img_url %>" class="inputText">
+                            <textarea type="text" name='description' cols="40"
+                                rows="20"><%= book.description %></textarea>
+                            <input type="text" name="book_shelf" value="<%= book.book_shelf %>" class="inputText">
+                            <button type="submit" class="inputBtn">Update</button>
+                        </fieldset>
+                    </form>
+                </section>
+            </div>
+        </section>
     </main>
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="/functionality/app.js"></script>
 </body>
 </html>

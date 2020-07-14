@@ -30,7 +30,7 @@ header{
   top:0px;
   right:0;
   /* padding:7px 15px 0px 15px; */
-  color:black;
+  color: red;
   border:0;
   font-size:3em;
   line-height:65px;
@@ -40,6 +40,7 @@ header{
   z-index:10000000000000;
 }
 .menu {
+    background-color: #181717;
     height: auto;
     z-index: 1000000;
     font-weight: bold;
@@ -93,7 +94,7 @@ header{
 header{display:inline-block; font-size:12px;}
 span{padding-left:20px;}
 a{color:#336699;}
-form{
+#main_form{
     text-align: center;
     width: 50%;
     margin: auto auto;
